@@ -1,2 +1,2 @@
-# ExercisesGallery
- Une gallerie d'exercices pour débuutants en HTML CSS JS
+# Exercises Gallery
+ Une gallerie d'exercices pour débutants en HTML CSS JS
