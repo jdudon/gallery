@@ -3,7 +3,7 @@
     "id": "017",
     "title": "Variables et Constante (1/2)",
     "consigne": "Créer un fichier Index.html, un fichier script.js et relier les deux en ajoutant une balise script dans le body de l’Index.html.\n\nDans le fichier script.js, on voudra stocker plusieurs valeurs:\n\n- Le nom\n- Le prenom\n- L’âge\n- Le numero de Sécurité sociale\n\nIndiquer si chacune de ces valeurs sera stockée dans une variable ou une constante et les déclarer dans le fichier.",
-    "correctionDisponible": false,
+    "correctionDisponible": true,
     "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Variables et constantes</title>\n</head>\n<body>\n  <h1>Exercice : Variables et constantes</h1>\n  <p>Consultez la console pour voir les valeurs.</p>\n  <script src=\"script.js\"></script>\n</body>\n</html>\n\n// Utilisation d'une constante pour le nom et le prénom car ils ne changent pas\nconst nom = \"Dupont\";\nconst prenom = \"Marie\";\n\n// Utilisation d'une constante pour l'âge si on considère qu'il est fixé au moment de la déclaration\nconst age = 25;\n\n// Utilisation d'une constante pour le numéro de sécurité sociale car il est unique et ne change jamais\nconst numeroSecuriteSociale = \"123-45-6789\";\n\n// Affichage dans la console\nconsole.log(\"Nom :\", nom);\nconsole.log(\"Prénom :\", prenom);\nconsole.log(\"Âge :\", age);\nconsole.log(\"Numéro de sécurité sociale :\", numeroSecuriteSociale);",    "tags": [
       "Bases",
       "JS"

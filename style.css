@@ -1,72 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 2rem;
-    background-color: #f4f4f4;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  #exercices-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .exercice-card {
-    background-color: #fff;
+  font-family: "Nunito", sans-serif;
+  margin: 2rem;
+  background-color: #f2f2f2;
+  color: #041515;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#exercices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.exercice-card {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+  button {
+    background-color: #044040;
+    border: none;
+    padding: 0.8rem;
     border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #fefefe;
+    width: 100%;
   }
-  
-  .exercice-card h2 {
-    margin-top: 0;
-  }
-  
-  .exercice-card ul {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-  }
-  
-  .exercice-card code {
-    display: block;
-    white-space: pre-wrap;
-    background-color: #f0f0f0;
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 5px;
-    font-family: "Courier New", monospace;
-    font-size: 0.9rem;
-    overflow-x: auto;
-  }
-  /* ... styles précédents ... */
+}
+
+.exercice-card h2 {
+  margin-top: 0;
+}
+
+.exercice-card ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.exercice-card code {
+  display: block;
+  white-space: pre-wrap;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  font-weight: 500;
+}
 
 #filters {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#filters button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  button[data-tag="HTML"] {
+    background-color: #8c1f28;
+    color: #fefefe;
   }
-  
-  #filters button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    background-color: #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  button[data-tag="CSS"] {
+    background-color: #591c21;
+    color: #fefefefe;
   }
-  
-  #filters button:hover {
-    background-color: #bbb;
+  button[data-tag="JS"] {
+    background-color: #d96a25;
+    color: #fefefe;
   }
-  
-  #filters button.active {
-    background-color: #555;
-    color: white;
-  }
-  
+}
+
+#filters button:hover {
+  background-color: #bbb;
+}
+
+#filters button.active {
+  background-color: #555;
+  color: white;
+}
