@@ -66,23 +66,24 @@ h1 {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border: none;
-  background-color: #ddd;
+  /* background-color: #ddd; */
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s;
 
-  button[data-tag="HTML"] {
-    background-color: #8c1f28;
-    color: #fefefe;
-  }
-  button[data-tag="CSS"] {
-    background-color: #591c21;
-    color: #fefefefe;
-  }
-  button[data-tag="JS"] {
-    background-color: #d96a25;
-    color: #fefefe;
-  }
+
+}
+button[data-tag="HTML"] {
+  background-color: #8c1f28;
+  color: #fefefe;
+}
+button[data-tag="CSS"] {
+  background-color: #591c21;
+  color: #fefefefe;
+}
+button[data-tag="JS"] {
+  background-color: #d96a25;
+  color: #fefefe;
 }
 
 #filters button:hover {
