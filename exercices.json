@@ -3,7 +3,7 @@
     "id": "017",
     "title": "Variables et Constante (1/2)",
     "consigne": "Créer un fichier Index.html, un fichier script.js et relier les deux en ajoutant une balise script dans le body de l’Index.html.\n\nDans le fichier script.js, on voudra stocker plusieurs valeurs:\n\n- Le nom\n- Le prenom\n- L’âge\n- Le numero de Sécurité sociale\n\nIndiquer si chacune de ces valeurs sera stockée dans une variable ou une constante et les déclarer dans le fichier.",
-    "correctionDisponible": true,
+    "correctionDisponible": false,
     "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Variables et constantes</title>\n</head>\n<body>\n  <h1>Exercice : Variables et constantes</h1>\n  <p>Consultez la console pour voir les valeurs.</p>\n  <script src=\"script.js\"></script>\n</body>\n</html>\n\n//\n<script> Utilisation d'une constante pour le nom et le prénom car ils ne changent pas\nconst nom = \"Dupont\";\nconst prenom = \"Marie\";\n\n// Utilisation d'une constante pour l'âge si on considère qu'il est fixé au moment de la déclaration\nconst age = 25;\n\n// Utilisation d'une constante pour le numéro de sécurité sociale car il est unique et ne change jamais\nconst numeroSecuriteSociale = \"123-45-6789\";\n\n// Affichage dans la console\nconsole.log(\"Nom :\", nom);\nconsole.log(\"Prénom :\", prenom);\nconsole.log(\"Âge :\", age);\nconsole.log(\"Numéro de sécurité sociale :\", numeroSecuriteSociale);\n</script>",
     "tags": [
       "Bases",
@@ -151,7 +151,7 @@
     "id": "029",
     "title": "Bouton change color & contenu",
     "consigne": "Créer une page interactive où un bouton permet de changer dynamiquement la couleur et le contenu d'une section.\n\n### HTML :\n- Créer une section principale `.full-view` qui occupe toute la hauteur de la fenêtre (100vh).\n- Ajouter un titre `<h2>` avec l’identifiant `section-heading`.\n- Ajouter un paragraphe `<p>` avec l’identifiant `section-paragraph`.\n- Ajouter un bouton `<button>` avec l’identifiant `changeContentButton`.\n\n### CSS :\n- Appliquer une couleur de fond bleue et une couleur de texte blanche à `.full-view`.\n- Centrer verticalement et horizontalement le contenu avec Flexbox.\n- Styliser le bouton avec :\n  - coins arrondis,\n  - couleurs complémentaires,\n  - effet de transition au survol.\n\n### JavaScript :\n- Sélectionner tous les éléments nécessaires (`section`, `h2`, `p`, `button`).\n- Créer une variable `isOriginal` pour suivre l’état du contenu.\n- Ajouter un événement `click` sur le bouton qui :\n  - change le fond en vert et le texte s’il est en état original,\n  - ou restaure les valeurs bleues d’origine sinon,\n  - et inverse l’état à chaque clic (`isOriginal = !isOriginal`).",
-    "correctionDisponible": true,
+    "correctionDisponible": false,
     "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Bouton Change Color</title>\n  <style>\n    .full-view {\n      height: 100vh;\n      background-color: blue;\n      color: white;\n      display: flex;\n      flex-direction: column;\n      justify-content: center;\n      align-items: center;\n      transition: background-color 0.5s ease;\n    }\n\n    button {\n      margin-top: 20px;\n      padding: 10px 20px;\n      font-size: 1rem;\n      border: none;\n      border-radius: 8px;\n      background-color: white;\n      color: blue;\n      cursor: pointer;\n      transition: all 0.3s ease;\n    }\n\n    button:hover {\n      background-color: lightgray;\n      color: green;\n    }\n  </style>\n</head>\n<body>\n  <section class=\"full-view\" id=\"section\">\n    <h2 id=\"section-heading\">Titre original</h2>\n    <p id=\"section-paragraph\">Contenu initial de la section.</p>\n    <button id=\"changeContentButton\">Changer le contenu</button>\n  </section>\n\n  <script>\n    const section = document.getElementById(\"section\");\n    const heading = document.getElementById(\"section-heading\");\n    const paragraph = document.getElementById(\"section-paragraph\");\n    const button = document.getElementById(\"changeContentButton\");\n\n    let isOriginal = true;\n\n    button.addEventListener(\"click\", () => {\n      if (isOriginal) {\n        section.style.backgroundColor = \"green\";\n        heading.textContent = \"Titre modifié\";\n        paragraph.textContent = \"Le contenu a été changé !\";\n      } else {\n        section.style.backgroundColor = \"blue\";\n        heading.textContent = \"Titre original\";\n        paragraph.textContent = \"Contenu initial de la section.\";\n      }\n      isOriginal = !isOriginal;\n    });\n  </script>\n</body>\n</html>",
     "tags": [
       "JS",
@@ -166,7 +166,162 @@
     "consigne": "Créer un jeu où des cartes retournables doivent être associées par paires. Lorsqu'une paire correcte est trouvée, les cartes disparaissent. Sinon, elles se retournent après une brève période.\n\n## Fonctionnalités attendues :\n1. Chaque carte affiche une couleur lorsqu'elle est retournée.\n2. Les cartes sont disposées aléatoirement.\n3. Si deux cartes retournées correspondent, elles sont marquées comme \"trouvées\" et disparaissent.\n4. Si elles ne correspondent pas, elles se retournent après un délai.\n5. Une seule paire peut être retournée à la fois (verrouillage du plateau).\n\n### Etapes\n- Etape 1\n    1. Créer une structure HTML comprenant :\n        - Un conteneur pour afficher les cartes.\n        - 12 cartes avec des paires de couleurs (6 paires au total).\n        - Chaque carte contient un attribut `data-color` pour stocker sa couleur.\n- Etape 2\n    - Créer un plateau de jeu avec une disposition en grille.\n    - Style par défaut des cartes :\n        - Carrées, grises, et avec des bords arrondis.\n        - Change de couleur lorsqu'elles sont retournées.\n    - Ajouter des classes pour les états :\n        - `.flipped` : indique qu'une carte est retournée.\n        - `.matched` : indique qu'une paire est trouvée (et cachée).\n- Etape 3\n    **Sélection des éléments HTML**\n    - Récupérer toutes les cartes via leur classe.\n    - Initialiser les variables `firstCard`, `secondCard` et `lockBoard` pour gérer l'état du jeu.\n- Etape 4\n    - **Événements de clic**\n        - Ajouter un gestionnaire d'événements `click` pour chaque carte :\n            - Ignorer si le plateau est verrouillé ou si la carte est déjà retournée.\n            - Changer la couleur de la carte pour celle définie dans `data-color`.\n            - Ajouter la classe `.flipped`.\n- Etape 5\n    **Logique des paires**\n    - Si c'est la première carte :\n        - La stocker dans `firstCard`.\n    - Si c'est la deuxième carte :\n        - La stocker dans `secondCard`.\n        - Vérifier si les deux cartes ont la même couleur (`data-color`).\n- Etape 6\n    **Gestion des correspondances**\n    - Si les couleurs correspondent :\n        - Ajouter la classe `.matched` aux deux cartes.\n        - Réinitialiser `firstCard` et `secondCard`.\n    - Si les couleurs ne correspondent pas :\n        - Verrouiller le plateau pour empêcher d'autres interactions.\n        - Après un délai (1 seconde) :\n            - Réinitialiser les cartes en leur redonnant leur couleur initiale (grise) et en retirant la classe `.flipped`.\n            - Réinitialiser `firstCard`, `secondCard` et déverrouiller le plateau.\n- Bonus\n    ### Points supplémentaires\n    1. Disposer les cartes aléatoirement\n    2. Ajout d'un score\n    3. Fin de partie",
     "correctionDisponible": true,
     "correction": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Flip Card Game</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            text-align: center;\n            margin-top: 50px;\n        }\n\n        #game-board {\n            display: grid;\n            grid-template-columns: repeat(4, 100px);\n            gap: 10px;\n            justify-content: center;\n        }\n\n        .card {\n            width: 100px;\n            height: 100px;\n            background-color: gray;\n            cursor: pointer;\n            border: 1px solid #000;\n            border-radius: 8px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n        }\n\n        .card.flipped {\n            background-color: white;\n        }\n\n        .card.matched {\n            visibility: hidden;\n        }\n    </style>\n</head>\n<body>\n    <h1>Flip Card Game</h1>\n    <div id=\"game-board\">\n        <!-- 12 cartes (6 paires de couleurs) -->\n        <div class=\"card\" data-color=\"red\"></div>\n        <div class=\"card\" data-color=\"blue\"></div>\n        <div class=\"card\" data-color=\"green\"></div>\n        <div class=\"card\" data-color=\"yellow\"></div>\n        <div class=\"card\" data-color=\"purple\"></div>\n        <div class=\"card\" data-color=\"orange\"></div>\n        <div class=\"card\" data-color=\"red\"></div>\n        <div class=\"card\" data-color=\"blue\"></div>\n        <div class=\"card\" data-color=\"green\"></div>\n        <div class=\"card\" data-color=\"yellow\"></div>\n        <div class=\"card\" data-color=\"purple\"></div>\n        <div class=\"card\" data-color=\"orange\"></div>\n    </div>\n    <script>\n        const cards = document.querySelectorAll('.card');\n        let firstCard, secondCard;\n        let lockBoard = false;\n\n        function flipCard() {\n            if (lockBoard) return;\n            if (this === firstCard) return;\n\n            this.style.backgroundColor = this.dataset.color;\n            this.classList.add('flipped');\n\n            if (!firstCard) {\n                firstCard = this;\n                return;\n            }\n\n            secondCard = this;\n            lockBoard = true;\n\n            if (firstCard.dataset.color === secondCard.dataset.color) {\n                firstCard.classList.add('matched');\n                secondCard.classList.add('matched');\n                resetBoard();\n            } else {\n                setTimeout(() => {\n                    firstCard.style.backgroundColor = 'gray';\n                    secondCard.style.backgroundColor = 'gray';\n                    firstCard.classList.remove('flipped');\n                    secondCard.classList.remove('flipped');\n                    resetBoard();\n                }, 1000);\n            }\n        }\n\n        function resetBoard() {\n            [firstCard, secondCard, lockBoard] = [null, null, false];\n        }\n\n        cards.forEach(card => card.addEventListener('click', flipCard));\n\n        function shuffleCards() {\n            cards.forEach(card => {\n                const randomPos = Math.floor(Math.random() * 12);\n                card.style.order = randomPos;\n            });\n        }\n\n        shuffleCards();\n    </script>\n</body>\n</html>",
-    "tags": ["JS", "DOM", "Jeu", "Événements", "Logique"]
+    "tags": [
+      "JS",
+      "DOM",
+      "Jeu",
+      "Événements",
+      "Logique"
+    ]
+  },
+  {
+    "id": "031",
+    "title": "Les balises et attributs",
+    "consigne": "Créer un fichier index.html et créer une section contenant un titre principal “Je suis un titre Principal”,\nun titre secondaire “Je suis un titre secondaire”, un paragraphe “Je suis un paragraphe”, une image.",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice HTML</title>\n</head>\n<body>\n  <section>\n    <h1>Je suis un titre Principal</h1>\n    <h2>Je suis un titre secondaire</h2>\n    <p>Je suis un paragraphe</p>\n    <img src=\"image.jpg\" alt=\"Exemple d'image\">\n  </section>\n</body>\n</html>",
+    "tags": [
+      "HTML",
+      "Balises",
+      "Attributs"
+    ]
+  },
+  {
+    "id": "032",
+    "title": "Les listes",
+    "consigne": "Créer une liste ordonnée :\n1. Boissons\n2. Légumes\n3. Desserts",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice Liste Ordonnée</title>\n</head>\n<body>\n  <ol>\n    <li>Boissons</li>\n    <li>Légumes</li>\n    <li>Desserts</li>\n  </ol>\n</body>\n</html>",
+    "tags": [
+      "HTML",
+      "Listes"
+    ]
+  },
+  {
+    "id": "033",
+    "title": "Les liens",
+    "consigne": "Créer un lien externe vers le site de Nike et un lien vers une autre page de votre site (nomDeLaPage.html),\nainsi qu'un lien en bas de page qui mène à un titre en haut de page.",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice Liens</title>\n</head>\n<body>\n  <a href=\"https://www.nike.com\">Lien vers Nike</a>\n  <a href=\"nomDeLaPage.html\">Lien vers une autre page</a>\n  <a href=\"#top\">Retour en haut</a>\n\n  <h1 id=\"top\">Titre principal en haut</h1>\n</body>\n</html>",
+    "tags": [
+      "HTML",
+      "Liens"
+    ]
+  },
+  {
+    "id": "034",
+    "title": "Sélecteurs et déclarations",
+    "consigne": "1. Créer un fichier CSS et le lier au fichier HTML.\n2. Créer un élément h1 et une liste ordonnée.\n3. Assigner au sélecteur h1 une couleur verte et une taille de 50px.\n4. Assigner au sélecteur ol une couleur rouge et le mettre en gras.",
+    "correctionDisponible": true,
+    "correction": "<!-- index.html -->\n<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice CSS</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <h1>Exemple de titre</h1>\n  <ol>\n    <li>Premier élément</li>\n    <li>Deuxième élément</li>\n  </ol>\n</body>\n</html>\n\n<!-- style.css -->\nh1 {\n  color: green;\n  font-size: 50px;\n}\n\nol {\n  color: red;\n  font-weight: bold;\n}",
+    "tags": [
+      "CSS",
+      "Sélecteurs",
+      "Déclarations"
+    ]
+  },
+  {
+    "id": "035",
+    "title": "Sélecteurs et déclarations avec ID et classe",
+    "consigne": "1. Créer un paragraphe.\n2. Créer un deuxième paragraphe, lui donner une `class`, lui assigner une bordure de 4px d'épaisseur, en pointillé et bleu clair et assigner à ce même paragraphe, une opacité de 0.5.\n3. Assigner les valeurs de cette nouvelle CLASS au premier paragraphe.\n4. Le premier paragraphe est centré.",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice CSS</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <p id=\"para1\" class=\"para\">Je suis un premier paragraphe</p>\n  <p class=\"para\">Je suis un deuxième paragraphe</p>\n\n  <style>\n    #para1 {\n      text-align: center;\n    }\n\n    .para {\n      border: 4px dotted lightblue;\n      opacity: 0.5;\n    }\n  </style>\n</body>\n</html>",
+    "tags": [
+      "CSS",
+      "ID",
+      "CLASS"
+    ]
+  },
+  {
+    "id": "036",
+    "title": "Les listes",
+    "consigne": "Créer une liste ordonnée :\n1. Boissons\n2. Légumes\n3. Desserts",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice Liste Ordonnée</title>\n</head>\n<body>\n  <ol>\n    <li>Boissons</li>\n    <li>Légumes</li>\n    <li>Desserts</li>\n  </ol>\n</body>\n</html>",
+    "tags": [
+      "HTML",
+      "Listes"
+    ]
+  },
+  {
+    "id": "037",
+    "title": "Les liens",
+    "consigne": "Créer un lien externe vers le site de Nike et un lien vers une autre page de votre site (nomDeLaPage.html),\nainsi qu'un lien en bas de page qui mène à un titre en haut de page.",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice Liens</title>\n</head>\n<body>\n  <a href=\"https://www.nike.com\">Lien vers Nike</a>\n  <a href=\"nomDeLaPage.html\">Lien vers une autre page</a>\n  <a href=\"#top\">Retour en haut</a>\n\n  <h1 id=\"top\">Titre principal en haut</h1>\n</body>\n</html>",
+    "tags": [
+      "HTML",
+      "Liens"
+    ]
+  },
+  {
+    "id": "038",
+    "title": "Les commentaires",
+    "consigne": "Créer un commentaire dans votre fichier HTML qui explique ce que fait chaque élément de votre page.",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice Commentaires</title>\n</head>\n<body>\n  <!-- Ce titre est un h1 et c'est le titre principal de la page -->\n  <h1>Mon premier titre</h1>\n\n  <!-- Ce paragraphe contient du texte expliquant le contenu de la page -->\n  <p>Ceci est un paragraphe explicatif.</p>\n</body>\n</html>",
+    "tags": [
+      "HTML",
+      "Commentaires"
+    ]
+  },
+  {
+    "id": "039",
+    "title": "La structure de la page HTML",
+    "consigne": "Créer une page HTML valide avec la structure de base suivante : \n1. Déclaration DOCTYPE\n2. Balise `<html>`, `<head>` et `<body>`\n3. Ajouter un titre à la page",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Document</title>\n</head>\n<body>\n  <h1>Bienvenue sur ma page</h1>\n</body>\n</html>",
+    "tags": [
+      "HTML",
+      "Structure"
+    ]
+  },
+  {
+    "id": "040",
+    "title": "Sélecteurs et déclarations CSS",
+    "consigne": "1. Créer un fichier CSS, le lier au fichier HTML.\n2. Créer un élément h1 et une liste ordonnée.\n3. Assigner au sélecteur h1 une couleur verte et une taille de 50px.\n4. Assigner au sélecteur ol une couleur rouge et le mettre en gras.",
+    "correctionDisponible": true,
+    "correction": "<!-- index.html -->\n<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice CSS</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <h1>Exemple de titre</h1>\n  <ol>\n    <li>Premier élément</li>\n    <li>Deuxième élément</li>\n  </ol>\n</body>\n</html>\n\n<!-- style.css -->\nh1 {\n  color: green;\n  font-size: 50px;\n}\n\nol {\n  color: red;\n  font-weight: bold;\n}",
+    "tags": [
+      "CSS",
+      "Sélecteurs",
+      "Déclarations"
+    ]
+  },
+  {
+    "id": "041",
+    "title": "ID et class en CSS",
+    "consigne": "1. Créer un paragraphe.\n2. Créer un deuxième paragraphe, lui donner une `class`, lui assigner une bordure de 4px d'épaisseur, en pointillé et bleu clair et assigner à ce même paragraphe, une opacité de 0.5.\n3. Assigner les valeurs de cette nouvelle `class` au premier paragraphe.\n4. Le premier paragraphe est centré.",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice CSS</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <p id=\"para1\" class=\"para\">Je suis un premier paragraphe</p>\n  <p class=\"para\">Je suis un deuxième paragraphe</p>\n\n  <style>\n    #para1 {\n      text-align: center;\n    }\n\n    .para {\n      border: 4px dotted lightblue;\n      opacity: 0.5;\n    }\n  </style>\n</body>\n</html>",
+    "tags": [
+      "CSS",
+      "ID",
+      "CLASS"
+    ]
+  },
+  {
+    "id": "042",
+    "title": "L’héritage et la priorité",
+    "consigne": "1. Créer une page HTML avec un style CSS.\n2. Ajouter des styles de couleur et vérifier les comportements d'héritage et de priorité avec les éléments enfants.",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice Héritage</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <div class=\"parent\">\n    <p>Texte dans un paragraphe.</p>\n    <div class=\"enfant\">\n      <p>Texte dans un paragraphe enfant.</p>\n    </div>\n  </div>\n\n  <style>\n    .parent {\n      color: red;\n    }\n\n    .enfant p {\n      color: blue;\n    }\n  </style>\n</body>\n</html>",
+    "tags": [
+      "CSS",
+      "Héritage",
+      "Priorité"
+    ]
+  },
+  {
+    "id": "043",
+    "title": "Les types d'éléments en CSS",
+    "consigne": "1. Créer une page HTML avec des éléments de type `block`, `inline` et `inline-block`.\n2. Utiliser la propriété `display` pour changer leur type et vérifier le comportement.",
+    "correctionDisponible": true,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Exercice Display</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <div class=\"block\">Block Element</div>\n  <span class=\"inline\">Inline Element</span>\n  <button class=\"inline-block\">Inline-Block Element</button>\n\n  <style>\n    .block {\n      display: block;\n      background-color: yellow;\n      width: 100%;\n      margin-bottom: 10px;\n    }\n\n    .inline {\n      display: inline;\n      background-color: lightgreen;\n    }\n\n    .inline-block {\n      display: inline-block;\n      background-color: lightblue;\n    }\n  </style>\n</body>\n</html>",
+    "tags": [
+      "CSS",
+      "Display",
+      "Types"
+    ]
   }
-  
 ]

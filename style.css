@@ -55,6 +55,27 @@ h1 {
   font-weight: 500;
 }
 
+
+details summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.toggle-icon::before {
+  content: "➕";
+  transition: transform 0.2s ease;
+}
+
+details[open] .toggle-icon::before {
+  content: "➖";
+}
+
+
 #filters {
   display: flex;
   justify-content: center;
