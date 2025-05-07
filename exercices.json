@@ -3,7 +3,7 @@
     "id": "017",
     "title": "Variables et Constante (1/2)",
     "consigne": "Créer un fichier Index.html, un fichier script.js et relier les deux en ajoutant une balise script dans le body de l’Index.html.\n\nDans le fichier script.js, on voudra stocker plusieurs valeurs:\n\n- Le nom\n- Le prenom\n- L’âge\n- Le numero de Sécurité sociale\n\nIndiquer si chacune de ces valeurs sera stockée dans une variable ou une constante et les déclarer dans le fichier.",
-    "correctionDisponible": false,
+    "correctionDisponible": true,
     "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Variables et constantes</title>\n</head>\n<body>\n  <h1>Exercice : Variables et constantes</h1>\n  <p>Consultez la console pour voir les valeurs.</p>\n  <script src=\"script.js\"></script>\n</body>\n</html>\n\n//\n<script> Utilisation d'une constante pour le nom et le prénom car ils ne changent pas\nconst nom = \"Dupont\";\nconst prenom = \"Marie\";\n\n// Utilisation d'une constante pour l'âge si on considère qu'il est fixé au moment de la déclaration\nconst age = 25;\n\n// Utilisation d'une constante pour le numéro de sécurité sociale car il est unique et ne change jamais\nconst numeroSecuriteSociale = \"123-45-6789\";\n\n// Affichage dans la console\nconsole.log(\"Nom :\", nom);\nconsole.log(\"Prénom :\", prenom);\nconsole.log(\"Âge :\", age);\nconsole.log(\"Numéro de sécurité sociale :\", numeroSecuriteSociale);\n</script>",
     "tags": [
       "Bases",
@@ -14,7 +14,7 @@
     "id": "018",
     "title": "Variables et Constante (2/2)",
     "consigne": "- Lancer l’Index.html en live server.\n- Ouvrir la console du Navigateur.\n- Afficher la valeur de la variable age.\n- Changer la valeur de la variable age.\n- Vérifier que la modification s’est effectuée",
-    "correctionDisponible": false,
+    "correctionDisponible": true,
     "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Variables et constantes</title>\n</head>\n<body>\n    <h1>Exercice : Variables et constantes</h1>\n    <p>Consultez la console pour voir les valeurs.</p>\n    <script src=\"script.js\"></script>\n</body>\n</html>\n\n<script>\n// Utilisation d'une constante pour le nom et le prénom car ils ne changent pas\nconst nom = \"Dupont\";\nconst prenom = \"Marie\";\n\n// Utilisation d'une variable pour l'âge car il peut être modifié\nlet age = 25;\n\n// Utilisation d'une constante pour le numéro de sécurité sociale car il est unique et ne change jamais\nconst numeroSecuriteSociale = \"123-45-6789\";\n\n// Affichage initial de l'âge dans la console\nconsole.log(\"Âge initial :\", age);\n\n// Modification de la valeur de la variable age\nage = 26;\n\n// Vérification que la modification a bien été effectuée\nconsole.log(\"Âge modifié :\", age);\n</script>",
     "tags": [
       "JS",
@@ -49,7 +49,7 @@
     "id": "021",
     "title": "Réussite exam - Opérateurs de comparaison et condition if",
     "consigne": "1. Déclarez une fonction appelée verifierReussiteExamen qui prend un paramètre note.\n2. À l'intérieur de la fonction, utilisez une instruction conditionnelle pour vérifier si la note de l'étudiant est supérieure ou égale à la note minimale pour réussir l'examen.\n3. Définissez la note minimale pour réussir l'examen à 10.\n4. Si la note est supérieure ou égale à 10, affichez un message indiquant que l'étudiant a réussi l'examen.\n5. Sinon, affichez un message indiquant que l'étudiant a échoué à l'examen.",
-    "correctionDisponible": false,
+    "correctionDisponible": true,
     "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Exercice JavaScript - Vérification de réussite</title>\n</head>\n<body>\n    <script src=\"script.js\"></script>\n</body>\n</html>\n\n<script>\n// Déclaration de la fonction verifierReussiteExamen\nfunction verifierReussiteExamen(note) {\n    const noteMinimale = 10;\n\n    if (note >= noteMinimale) {\n        console.log(\"Félicitations ! Vous avez réussi l'examen.\");\n    } else {\n        console.log(\"Désolé, vous avez échoué à l'examen.\");\n    }\n}\n\n// Exemple d'appel de la fonction\nverifierReussiteExamen(12);\nverifierReussiteExamen(8);\n</script>",
     "tags": [
       "JS",
@@ -62,7 +62,7 @@
     "id": "022",
     "title": "Fonctionnalité de salutations - Fonctions",
     "consigne": "1. Créer une variable username et mettez-y la valeur de votre choix (de type string).\n2. Créer une variable jours et mettez-y la valeur de votre choix (de type number).\n3. Créer une fonction salutations(), qui prend en paramètres username et jours et qui incrémentera jours de 1 et indiquera dans la console “Bonjour ... , vous êtes connectés depuis ... jours”.\n4. Appelez salutations() et vérifiez votre console.",
-    "correctionDisponible": false,
+    "correctionDisponible": true,
     "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Exercice JavaScript</title>\n</head>\n<body>\n    <script src=\"script.js\"></script>\n</body>\n</html>\n\n<script>\n// Création de la variable 'username' de type string\nlet username = \"Jessica\";\n\n// Création de la variable 'jours' de type number\nlet jours = 5;\n\n// Fonction 'salutations' qui prend en paramètres 'username' et 'jours'\nfunction salutations(username, jours) {\n    jours += 1;  // Incrémentation de 'jours' de 1\n    console.log(`Bonjour ${username}, vous êtes connectés depuis ${jours} jours`);\n}\n\n// Appel de la fonction salutations\nsalutations(username, jours);\n</script>",
     "tags": [
       "JS",
@@ -74,7 +74,7 @@
     "id": "023",
     "title": "Gestion stock magasin v1",
     "consigne": "Vous gérez un magasin en ligne et vous souhaitez créer des identifiants de produit uniques en combinant un numéro de produit avec un libellé. Vous avez un numéro de produit initial et un libellé de produit.\n\n1. Déclarez une variable numeroProduit et assignez-lui un nombre représentant le numéro initial du produit.\n2. Déclarez une constante libelleProduit et assignez-lui une chaîne de caractères représentant le libellé du produit.\n3. Utilisez une opération mathématique pour augmenter le numeroProduit de 1.\n4. Passez libelleProduit en majuscules et stockez la valeur finale dans une variable.\n5. Concaténez le numeroProduit avec le libelleProduit en majuscules pour former l'identifiant unique du produit.\n6. Affichez l'identifiant unique du produit dans la console.",
-    "correctionDisponible": false,
+    "correctionDisponible": true,
     "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Identifiant Produit</title>\n</head>\n<body>\n    <h1>Exercice : Identifiant de produit unique</h1>\n    <p id=\"produit\"></p>\n    <script src=\"script.js\"></script>\n</body>\n</html>\n\n<script>\n// Déclarez une variable pour le numéro initial du produit\nlet numeroProduit = 1001;\n\n// Déclarez une constante pour le libellé du produit\nconst libelleProduit = \"chaise\";\n\n// Augmentez le numéro du produit de 1\nnumeroProduit += 1;\n\n// Transformez le libellé en majuscules\nlet libelleProduitMajuscules = libelleProduit.toUpperCase();\n\n// Concaténez le numéro du produit avec le libellé en majuscules\nlet identifiantUnique = numeroProduit + \"_\" + libelleProduitMajuscules;\n\n// Affichez l'identifiant unique dans la console\nconsole.log(\"Identifiant unique du produit :\", identifiantUnique);\n\n// Bonus : Modification du DOM pour afficher l'identifiant unique\ndocument.getElementById(\"produit\").textContent = \"Identifiant unique du produit : \" + identifiantUnique;\n</script>",
     "tags": [
       "JS",
@@ -84,18 +84,6 @@
   },
   {
     "id": "024",
-    "title": "Nein nein - Itérations",
-    "consigne": "1. Créez une fonction sayHello qui affichera dans la console “Bonjour” suivi du prénom de chaque apprenant de la cdweb. Utilisez une boucle pour ça.\n2. Créez une boucle qui executera 10 fois le texte “NEIN”.",
-    "correctionDisponible": false,
-    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Exercice Tableau Apprenants</title>\n</head>\n<body>\n    <h1>Groupe des apprenants</h1>\n    <script src=\"script.js\"></script>\n</body>\n</html>\n\n<script>\n// Stockage des prénoms des apprenants dans le tableau 'cdweb7b'\nlet cdweb7b = [\"Paul\", \"Marie\", \"Léo\", \"Sophie\", \"Ahmed\", \"Clara\"];\n\n// Fonction sayHello qui affiche \"Bonjour [prénom]\" pour chaque apprenant\nfunction sayHello(liste) {\n  for (let i = 0; i < liste.length; i++) {\n    console.log(\"Bonjour \" + liste[i]);\n  }\n}\nsayHello(cdweb7b);\n\n// Boucle qui affiche \"NEIN\" 10 fois\nfor (let i = 0; i < 10; i++) {\n  console.log(\"NEIN\");\n}\n</script>",
-    "tags": [
-      "JS",
-      "Boucles",
-      "Tableaux"
-    ]
-  },
-  {
-    "id": "025",
     "title": "Jeu du Guess The Number v1",
     "consigne": "Créer un jeu “Devine Le Nombre” :\nL’ordinateur choisit un nombre au hasard entre 1 et 10 et l’utilisateur doit deviner ce nombre.\nLe jeu choisira un nombre aléatoire entre 1 et 10 (inclus).\n\n1. Tu as un seul essai pour deviner ce nombre.\n2. Utilise la fonction prompt() pour saisir ta proposition de nombre.\n3. Si ton nombre est égal au nombre mystère, tu gagnes ! Sinon, le jeu affichera le nombre mystère.",
     "correctionDisponible": false,
@@ -105,6 +93,18 @@
       "Conditions",
       "Aléatoire",
       "Interactions"
+    ]
+  },
+  {
+    "id": "025",
+    "title": "Nein nein - Itérations",
+    "consigne": "1. Créez une fonction sayHello qui affichera dans la console “Bonjour” suivi du prénom de chaque apprenant de la cdweb. Utilisez une boucle pour ça.\n2. Créez une boucle qui executera 10 fois le texte “NEIN”.",
+    "correctionDisponible": false,
+    "correction": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Exercice Tableau Apprenants</title>\n</head>\n<body>\n    <h1>Groupe des apprenants</h1>\n    <script src=\"script.js\"></script>\n</body>\n</html>\n\n<script>\n// Stockage des prénoms des apprenants dans le tableau 'cdweb7b'\nlet cdweb7b = [\"Paul\", \"Marie\", \"Léo\", \"Sophie\", \"Ahmed\", \"Clara\"];\n\n// Fonction sayHello qui affiche \"Bonjour [prénom]\" pour chaque apprenant\nfunction sayHello(liste) {\n  for (let i = 0; i < liste.length; i++) {\n    console.log(\"Bonjour \" + liste[i]);\n  }\n}\nsayHello(cdweb7b);\n\n// Boucle qui affiche \"NEIN\" 10 fois\nfor (let i = 0; i < 10; i++) {\n  console.log(\"NEIN\");\n}\n</script>",
+    "tags": [
+      "JS",
+      "Boucles",
+      "Tableaux"
     ]
   },
   {
